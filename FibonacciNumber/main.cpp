@@ -10,17 +10,18 @@ int fibonacci(int n)
 {
     if (n == 0)
     {
-        //printf("0");
-        return 0;
+        fibonacciNum[n] = 0;
+        return fibonacciNum[n];
     }
     else if (n == 1)
     {
-        //printf("1");
-        return 1;
+        fibonacciNum[n] = 1;
+        return fibonacciNum[n];
     }
     else
     {
-        return fibonacci(n - 1) + fibonacci(n - 2);
+        fibonacciNum[n] = fibonacciNum[n - 1] + fibonacciNum[n - 2];
+        return fibonacciNum[n];
     }
 }
 
