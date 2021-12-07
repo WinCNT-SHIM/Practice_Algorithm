@@ -87,13 +87,23 @@ int main()
     // °¡Ã­ °á°ú º¸°ü º¯¼ö
     map<char, int> gachaResult;
 
-    cout << GACHAMAX << "¹ø °¡Ã­" << endl;
+    cout << "°¡Ã­ È®·ü" << endl;
+    cout << "A: " << setw(2) << gachaTable['A'] * 100 << "%" << endl;
+    cout << "B: " << setw(2) << gachaTable['B'] * 100 << "%" << endl;
+    cout << "C: " << setw(2) << gachaTable['C'] * 100 << "%" << endl;
+    cout << "D: " << setw(2) << gachaTable['D'] * 100 << "%" << endl;
+    cout << "E: " << setw(2) << gachaTable['E'] * 100 << "%" << endl;
+    cout << "F: " << setw(2) << gachaTable['F'] * 100 << "%" << endl;
+    cout << "G: " << setw(2) << gachaTable['G'] * 100 << "%" << endl;
+    cout << "H: " << setw(2) << gachaTable['H'] * 100 << "%" << endl;
+
     for (int i = 0; i < GACHAMAX; i++)
     {
         char tmpRes = gachaUniform();
         ++gachaResult[tmpRes];
     }
 
+    cout << "\n" << GACHAMAX << "¹ø °¡Ã­" << endl;
     cout << "°¡Ã­ °á°ú" << endl;
     cout << "A: " << gachaResult['A'] << "¹ø(" << (double)gachaResult['A'] * 100 / GACHAMAX << "%)" << endl;
     cout << "B: " << gachaResult['B'] << "¹ø(" << (double)gachaResult['B'] * 100 / GACHAMAX << "%)" << endl;
@@ -104,6 +114,6 @@ int main()
     cout << "G: " << gachaResult['G'] << "¹ø(" << (double)gachaResult['G'] * 100 / GACHAMAX << "%)" << endl;
     cout << "H: " << gachaResult['H'] << "¹ø(" << (double)gachaResult['H'] * 100 / GACHAMAX << "%)" << endl;
 
-
+    system("pause");
     return 0;
 }
