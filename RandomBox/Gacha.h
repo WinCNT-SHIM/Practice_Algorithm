@@ -1,14 +1,17 @@
 #pragma once
 #include <random>
+#include <vector>
+#include <map>
 
 using namespace std;
 
 class Gacha
 {
 private:
-    int maxItemNum, maxCell;
+    vector<int> tmpArr;
+    map<int, int> gachaRes;
 public:
-    Gacha(int maxItemNum, int maxCell);
+    Gacha(vector<int> tmpArr);
     ~Gacha();
 
     void GetItemByRandomBox(mt19937& gen);

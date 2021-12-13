@@ -54,7 +54,7 @@ int main()
     map<int, int>::iterator iter;
     for (iter = gachaRes.begin(); iter != gachaRes.end(); iter++)
     {
-        cout << "Key : " << iter->first << " Value : " << iter->second << endl;
+        cout << "아이템ID : " << iter->first << " 나온 횟수 : " << iter->second << endl;
     }
 
     system("pause");
