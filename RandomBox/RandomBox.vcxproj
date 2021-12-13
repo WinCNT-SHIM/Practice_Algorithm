@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Gacha.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadCSV.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Gacha.h" />
     <ClInclude Include="ReadCSV.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

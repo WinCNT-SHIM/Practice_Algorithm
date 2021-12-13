@@ -37,7 +37,17 @@ void ReadCSV::ReadCsvLine(string RawCsvDatas[], int maxItemNum)
     int i = 0;
     while (!fileInput.eof())
     {
-        getline(fileInput, RawCsvDatas[i++]);
+        string tmp = "";
+        getline(fileInput, tmp);
+        if (i > 100 && tmp != "")
+        {
+            cerr << "CSV파일의 헤더를 제외한 아이템 수를 " << maxItemNum << "개 설정해주세요.\n";
+            exit(100);
+        }
+        else
+        {
+            RawCsvDatas[i++] = tmp;
+        }
     }
 }
 
@@ -84,7 +94,7 @@ void ReadCSV::CheckData(string RawCsvDatas[], int itemTable[][2], int maxItemNum
         for (int i = 1; i < maxItemNum; i++)
         {
             size_t tmp = RawCsvDatas[i].find(',');
-            itemTable[i - 1][0] = stoi(RawCsvDatas[i].substr(0, tmp - 1));
+            itemTable[i - 1][0] = stoi(RawCsvDatas[i].substr(0, tmp));
             itemTable[i - 1][1] = stoi(RawCsvDatas[i].substr(tmp + 1));
         }
     }
