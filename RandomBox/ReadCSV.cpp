@@ -2,6 +2,7 @@
 
 ReadCSV::ReadCSV(string setPath)
 {
+    this->regexFormat = "^[0-9]*,[0-9]*$";
     ReadCSV::filePath = setPath;
 }
 
@@ -31,18 +32,66 @@ void ReadCSV::ReadCsvFile()
     }
 }
 
-void ReadCSV::ReadCsvLine(string RawCsvData[], int maxItemNum)
+void ReadCSV::ReadCsvLine(string RawCsvDatas[], int maxItemNum)
 {
     int i = 0;
     while (!fileInput.eof())
     {
-        getline(fileInput, RawCsvData[i++]);
+        getline(fileInput, RawCsvDatas[i++]);
     }
 }
 
-bool ReadCSV::CheckData(string RawCsvData[], int itemTable[][2])
+void ReadCSV::CheckData(string RawCsvDatas[], int itemTable[][2], int maxItemNum)
 {
-    return false;
+    bool isErr = false;
+
+    // CSV(2열)의 정규표현식을 설정
+    regex csvFormat(this->regexFormat);
+
+    // 아이템 수 체크
+    for (int i = 1; i < maxItemNum; i++)
+    {
+        if (RawCsvDatas[i] == "")
+        {
+            cerr << "CSV파일의 헤더를 제외한 아이템 수를 " << maxItemNum << "개 설정해주세요.\n";
+            return;
+        }
+    }
+
+    // 헤더 체크
+    if (regex_match(RawCsvDatas[0], csvFormat))
+    {
+        cerr << RawCsvDatas[0]
+            << ": 첫번째 행은 헤더를 입력해주세요." << endl;
+        isErr = true;
+    }
+
+    //for (int i = 1; i < sizeof(RawCsvDatas); i++)
+    // CSV포맷 체크
+    for (int i = 1; i < maxItemNum; i++)
+    {
+        if (!regex_match(RawCsvDatas[i], csvFormat))
+        {
+            cerr << RawCsvDatas[i] << ": "
+                << i << "번째 행이 CSV(2열) 형식이 아닙니다." << endl;
+            isErr = true;
+        }
+    }
+
+    // CSV파일에 문제가 없을 경우
+    if (!isErr)
+    {
+        for (int i = 1; i < maxItemNum; i++)
+        {
+            size_t tmp = RawCsvDatas[i].find(',');
+            itemTable[i - 1][0] = stoi(RawCsvDatas[i].substr(0, tmp - 1));
+            itemTable[i - 1][1] = stoi(RawCsvDatas[i].substr(tmp + 1));
+        }
+    }
+    else
+    {
+        return;
+    }
 }
 
 void ReadCSV::Close()

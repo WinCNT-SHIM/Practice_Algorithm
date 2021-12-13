@@ -8,7 +8,7 @@ using namespace std;
 const int maxItemNum = 100;
 const int maxCell = 2;
 
-string RawCsvData[maxItemNum];
+string RawCsvDatas[maxItemNum + 1];
 int itemTable[maxItemNum][maxCell];
 
 int main()
@@ -21,9 +21,13 @@ int main()
 
     CsvFile.CheckFile();
     CsvFile.ReadCsvFile();
-    CsvFile.ReadCsvLine(RawCsvData, maxItemNum);
+    CsvFile.ReadCsvLine(RawCsvDatas, maxItemNum);
+    CsvFile.CheckData(RawCsvDatas, itemTable, maxItemNum + 1);
 
-
+    for (int i = 0; i < sizeof(itemTable)/ sizeof(itemTable[0]); i++)
+    {
+        cout << itemTable[i][0] << " " << itemTable[i][1] << endl;
+    }
 
     //for (int i = 0; i < maxItemNum; i++)
     //{
