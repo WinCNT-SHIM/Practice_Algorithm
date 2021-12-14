@@ -8,6 +8,7 @@
 using namespace std;
 int sortedArr[5000000];
 
+/*
 /// <summary>
 /// 기본적인 퀵 정렬 알고리즘
 /// 2021-12-14 SSShim
@@ -39,7 +40,9 @@ void QuickSort(int arr[], int low, int high)
     QuickSort(arr, low, left - 1);
     QuickSort(arr, left + 1, high);
 }
-    
+*/
+
+/*
 /// <summary>
 /// 빠른 선택(Quick Selection) 알고리즘 구현해보기
 /// </summary>
@@ -89,6 +92,7 @@ int QuickSelect(int arr[], int low, int high, int K)
         return QuickSelect(arr, left + 1, high, K);
     }
 }
+*/
 
 /// <summary>
 /// 빠른 선택(Quick Selection) 알고리즘 + 정렬, 역정렬 고려
@@ -102,7 +106,7 @@ int QuickSelect_Mk2(int arr[], int low, int high, int K)
 {
     // 정렬된 배열인지 확인
     bool isSorted = true;
-    for (int i = low; i < high - 1; i++)
+    for (int i = low; i < high; i++)
     {
         if (arr[i] > arr[i + 1])
         {
@@ -115,7 +119,8 @@ int QuickSelect_Mk2(int arr[], int low, int high, int K)
         return arr[K];
     }
     // 역정렬된 배열인지 확인
-    for (int i = low; i < high - 1; i++)
+    isSorted = true;
+    for (int i = low; i < high; i++)
     {
         if (arr[i] < arr[i + 1])
         {
@@ -125,13 +130,16 @@ int QuickSelect_Mk2(int arr[], int low, int high, int K)
     }
     if (isSorted)
     {
-        return arr[high - K];
+        return arr[high - K + low];
     }
 
     int left = low; // 피벗보다 작은 수를 배치할 인덱스(스왑될 때마다 이동한다)
     int current = low; // 현재 확인 중인 인덱스(매 처리마다 이동한다)
-    int& pivot = arr[high]; // 배열의 마지막을 참조 연산자를 이용해 pivot으로 설정
-
+    //int& pivot = arr[high]; // 배열의 마지막을 참조 연산자를 이용해 pivot으로 설정(시간 초과)
+    // 배열의 중간 값을 피벗으로 설정 후, 마지막 인덱스와 교체
+    swap(arr[(low + high) / 2], arr[high]);
+    int& pivot = arr[high];
+    
     // 정렬 대상의 가장 앞의 숫자부터 마지막 숫자까지 검사
     for (; current < high; current++)
     {
@@ -144,7 +152,7 @@ int QuickSelect_Mk2(int arr[], int low, int high, int K)
         }
     }
     swap(arr[left], pivot);
-    //for (int i = low; i < high; i++)
+    //for (int i = low; i <= high; i++)
     //{
     //    printf("%d ", arr[i]);
     //}
@@ -160,13 +168,13 @@ int QuickSelect_Mk2(int arr[], int low, int high, int K)
     else if (K < left)
     {
         // return을 안 하면 메모리가 초과된다(그런데 VS에선 돌아감)
-        return QuickSelect(arr, low, left - 1, K);
+        return QuickSelect_Mk2(arr, low, left - 1, K);
     }
     // 피벗의 인덱스가 탐색할 인덱스보다 크다면 큰 쪽의 파티션만 퀵 셀렉션
     else
     {
         // return을 안 하면 메모리가 초과된다(그런데 VS에선 돌아감)
-        return QuickSelect(arr, left + 1, high, K);
+        return QuickSelect_Mk2(arr, left + 1, high, K);
     }
 }
 
@@ -178,11 +186,8 @@ int main()
     int* arr = new int[N];
     for (int i = 0; i < N; i++)
     {
-        int res = scanf("%d", &arr[i]);
-        //int res = scanf("%d", &sortedArr[i]);
-        //int tmp;
-        //int res = scanf("%d", &tmp);
-        //sortedVector.push_back(tmp);
+        //int res = scanf("%d", &arr[i]);   // 동적 할당
+        int res = scanf("%d", &sortedArr[i]);
     }
 
 #pragma region 퀵 정렬
@@ -191,18 +196,11 @@ int main()
 #pragma endregion
 
 #pragma region 빠른 선택(Quick Selection)
-    //printf("%d", QuickSelect(arr, 0, N - 1, K - 1));
     //int kValue = QuickSelect(sortedArr, 0, N - 1, K - 1);
     int kValue = QuickSelect_Mk2(sortedArr, 0, N - 1, K - 1);
+    //int kValue = QuickSelect_Mk2(arr, 0, N - 1, K - 1); // 동적 할당
     printf("%d", kValue);
 #pragma endregion
-
-    //for (int i = 0; i < N; i++)
-    //{
-    //    printf("%d\n", arr[i]);
-    //}
-
     delete[] arr;
-    //system("pause");
     return 0;
 }
