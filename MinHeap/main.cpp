@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
-#include <algorithm>
+#include <iomanip> // setw
 
 using namespace std;
 
@@ -72,13 +72,22 @@ int main()
     // 배열의 요소의 개수
     int n = sizeof(arr) / sizeof(arr[0]);
 
+    // Min Heap 출력
+    cout << "정렬할 배열의 요소: ";
+    for (int i = 0; i < n; ++i)
+    {
+        cout << setw(2) << arr[i] << " ";
+    }
+    cout << "\n";
+
+    // Min Heap 빌드
     buildMinHeap(arr, n);
 
     // Min Heap 출력
-    cout << "Min Heap 출력\n";
+    cout << "Min Heap 후의 결과: ";
     for (int i = 0; i < n; ++i)
     {
-        cout << arr[i] << " ";
+        cout << setw(2) << arr[i] << " ";
     }
     cout << "\n";
 
