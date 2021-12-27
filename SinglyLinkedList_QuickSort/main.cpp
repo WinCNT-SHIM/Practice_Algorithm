@@ -21,11 +21,11 @@ void push(struct Node** head_ref, int new_data)
 
     /* link the old list off the new node */
     //[3] 코드를 작성하세요.
-
+    new_node->next = *head_ref;
 
     /* move the head to point to the new node */
     //[4] 코드를 작성하세요.
-
+    *head_ref = new_node;
 }
 
 /* A utility function to print linked list */
