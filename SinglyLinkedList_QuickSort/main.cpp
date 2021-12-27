@@ -42,7 +42,10 @@ void printList(struct Node* node)
 struct Node* getTail(struct Node* cur)
 {
     // [1] 코드를 작성하세요.
-    if (cur == NULL) return cur;
+    if (cur == NULL || cur->next == NULL)
+    {
+        return cur;
+    }
     while (cur->next != NULL)
     {
         return getTail(cur->next);
@@ -78,7 +81,10 @@ struct Node* partition(struct Node* head, struct Node* end,
                 prev->next = cur->next;
 
             //[5] 코드를 작성하세요. --> cur가 tail 이 되면 됩니다.
-            //cur 노드를 tail이 되게 교체?
+            tail->next = cur;       // cur가 pivot보다 크면 tail 뒤에 옮겨서 정렬한다
+            cur = cur->next;        // 다음 비교를 위해 cur을 다음 리스트를 가리키도록 한다
+            tail = tail->next;      // tail 뒤에 pivot보다 큰 리스트가 이동됐으므로 tail을 재설정한다
+            tail->next = NULL;      // tail의 next는 null이 되도록 설정한다
         }
     }
 
