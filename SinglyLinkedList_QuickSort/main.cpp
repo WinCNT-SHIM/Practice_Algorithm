@@ -17,12 +17,15 @@ void push(struct Node** head_ref, int new_data)
 
     /* put in the data */
     //[2] 코드를 작성하세요.
+    new_node->data = new_data;
 
     /* link the old list off the new node */
     //[3] 코드를 작성하세요.
 
+
     /* move the head to point to the new node */
     //[4] 코드를 작성하세요.
+
 }
 
 /* A utility function to print linked list */

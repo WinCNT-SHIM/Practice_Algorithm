@@ -17,19 +17,26 @@ int Upper_Bound(int array[], int size, int val)
     // 이진 탐색 범위의 가운데 인덱스
     int root = (first + last) / 2;
 
+    // 첫번째 인덱스가 마지막 인덱스보다 
     while (first < last)
     {
+        // 배열의 중간이 주어진 값보다 작거나 같은 경우
+        // 배열의 중간 ~ 마지막을 다시 탐색하기 위해, 첫번째 인덱스를 중간 인덱스 + 1로 설정
         if (array[root] <= val)
         {
             first = root + 1;
         }
+        // 배열의 중간이 주어진 값보다 큰 경우
+        // 배열의 처음 ~ 중간을 다시 탐색하도록 설정, 마지막 인덱스를 마지막 인덱스 - 1로 설정
         else
         {
             last = root - 1;
         }
+        // 배열의 중간 인덱스를 다시 설정
         root = (first + last) / 2;
     }
-
+    // 탐색한 배열의 값이 주어진 값과 같거나 작을 경우
+    // 
     if (array[root] <= val)
     {
         return root + 1;
