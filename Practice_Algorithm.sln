@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STL_Heap", "STL_Heap\STL_He
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Heap_Sort", "Heap_Sort\Heap_Sort.vcxproj", "{FAB73D28-6EA7-4005-B04E-C1BBCD13032B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinarySearch", "BinarySearch\BinarySearch.vcxproj", "{DE7C157E-BE58-478D-818F-816ED71A99B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,6 +113,14 @@ Global
 		{FAB73D28-6EA7-4005-B04E-C1BBCD13032B}.Release|x64.Build.0 = Release|x64
 		{FAB73D28-6EA7-4005-B04E-C1BBCD13032B}.Release|x86.ActiveCfg = Release|Win32
 		{FAB73D28-6EA7-4005-B04E-C1BBCD13032B}.Release|x86.Build.0 = Release|Win32
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Debug|x64.ActiveCfg = Debug|x64
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Debug|x64.Build.0 = Debug|x64
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Debug|x86.ActiveCfg = Debug|Win32
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Debug|x86.Build.0 = Debug|Win32
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Release|x64.ActiveCfg = Release|x64
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Release|x64.Build.0 = Release|x64
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Release|x86.ActiveCfg = Release|Win32
+		{DE7C157E-BE58-478D-818F-816ED71A99B2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
