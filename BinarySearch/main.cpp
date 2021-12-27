@@ -88,16 +88,16 @@ int main()
     }
     cout << endl;
     cout << "출력\n";
-    cout << "Val: 1 = " << Upper_Bound(array, 10, 1) << endl;
-    cout << "Val: 2 = " << Upper_Bound(array, 10, 2) << endl;
-    cout << "Val: 3 = " << Upper_Bound(array, 10, 3) << endl;
-    cout << "Val: 4 = " << Upper_Bound(array, 10, 4) << endl;
-    cout << "Val: 5 = " << Upper_Bound(array, 10, 5) << endl;
-    cout << "Val: 6 = " << Upper_Bound(array, 10, 6) << endl;
-    cout << "Val: 7 = " << Upper_Bound(array, 10, 7) << endl;
-    cout << "Val: 8 = " << Upper_Bound(array, 10, 8) << endl;
-    cout << "Val: 9 = " << Upper_Bound(array, 10, 9) << endl;
-    cout << "Val:10 = " << Upper_Bound(array, 10, 10) << endl;
+    cout << "Upper_Bound, Val: 1 = " << Upper_Bound(array, 10, 1) << endl;
+    cout << "Upper_Bound, Val: 2 = " << Upper_Bound(array, 10, 2) << endl;
+    cout << "Upper_Bound, Val: 3 = " << Upper_Bound(array, 10, 3) << endl;
+    cout << "Upper_Bound, Val: 4 = " << Upper_Bound(array, 10, 4) << endl;
+    cout << "Upper_Bound, Val: 5 = " << Upper_Bound(array, 10, 5) << endl;
+    cout << "Upper_Bound, Val: 6 = " << Upper_Bound(array, 10, 6) << endl;
+    cout << "Upper_Bound, Val: 7 = " << Upper_Bound(array, 10, 7) << endl;
+    cout << "Upper_Bound, Val: 8 = " << Upper_Bound(array, 10, 8) << endl;
+    cout << "Upper_Bound, Val: 9 = " << Upper_Bound(array, 10, 9) << endl;
+    cout << "Upper_Bound, Val:10 = " << Upper_Bound(array, 10, 10) << endl;
     for (size_t i = 0; i < 10; i++)
     {
         cout << array[i] << " ";
@@ -122,16 +122,16 @@ int main()
     }
     cout << endl;
     cout << "출력\n";
-    cout << "Val: 1 = " << Lower_Bound(array, 10, 1) << endl;
-    cout << "Val: 2 = " << Lower_Bound(array, 10, 2) << endl;
-    cout << "Val: 3 = " << Lower_Bound(array, 10, 3) << endl;
-    cout << "Val: 4 = " << Lower_Bound(array, 10, 4) << endl;
-    cout << "Val: 5 = " << Lower_Bound(array, 10, 5) << endl;
-    cout << "Val: 6 = " << Lower_Bound(array, 10, 6) << endl;
-    cout << "Val: 7 = " << Lower_Bound(array, 10, 7) << endl;
-    cout << "Val: 8 = " << Lower_Bound(array, 10, 8) << endl;
-    cout << "Val: 9 = " << Lower_Bound(array, 10, 9) << endl;
-    cout << "Val:10 = " << Lower_Bound(array, 10, 10) << endl;
+    cout << "Lower_Bound, Val: 1 = " << Lower_Bound(array, 10, 1) << endl;
+    cout << "Lower_Bound, Val: 2 = " << Lower_Bound(array, 10, 2) << endl;
+    cout << "Lower_Bound, Val: 3 = " << Lower_Bound(array, 10, 3) << endl;
+    cout << "Lower_Bound, Val: 4 = " << Lower_Bound(array, 10, 4) << endl;
+    cout << "Lower_Bound, Val: 5 = " << Lower_Bound(array, 10, 5) << endl;
+    cout << "Lower_Bound, Val: 6 = " << Lower_Bound(array, 10, 6) << endl;
+    cout << "Lower_Bound, Val: 7 = " << Lower_Bound(array, 10, 7) << endl;
+    cout << "Lower_Bound, Val: 8 = " << Lower_Bound(array, 10, 8) << endl;
+    cout << "Lower_Bound, Val: 9 = " << Lower_Bound(array, 10, 9) << endl;
+    cout << "Lower_Bound, Val:10 = " << Lower_Bound(array, 10, 10) << endl;
     for (size_t i = 0; i < 10; i++)
     {
         cout << array[i] << " ";
