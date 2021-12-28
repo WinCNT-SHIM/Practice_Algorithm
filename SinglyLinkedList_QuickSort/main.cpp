@@ -75,8 +75,7 @@ struct Node* partition(struct Node* head, struct Node* end,
         }
         else // If cur node is greater than pivot
         {
-            // Move cur node to next of tail, and change
-            // tail
+            // Move cur node to next of tail, and change tail
             if (prev)
                 prev->next = cur->next;
 
