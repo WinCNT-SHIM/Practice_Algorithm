@@ -85,7 +85,7 @@ Hash* CreateHash(int capacity)
 /// <returns>빈 공간이 없으면 true, 그 외는 false</returns>
 bool AreAllFramesFull(Queue* queue)
 {
-    return queue->count = queue->numberOfFrames;
+    return queue->count == queue->numberOfFrames;
 }
 
 /// <summary>
@@ -164,11 +164,81 @@ void EnQueue(Queue* queue, Hash* hash, unsigned pageNumber)
     hash->arr[pageNumber] = temp;
 }
 
+/// <summary>
+/// 메모리에 있는 페이지 프레임을 참조하는 함수
+/// 1. Frame이 메모리에 없으면, 메모리에서 가져오고 큐의 front에 추가
+/// 2. Frame이 메모리에 있으면, 해당 Frame을 큐의 front로 옮김
+/// </summary>
+/// <param name="queue"></param>
+/// <param name="hash"></param>
+/// <param name="pageNumber"></param>
+void ReferencePage(Queue* queue, Hash* hash, int pageNumber)
+{
+    QNode* reqPage = hash->arr[pageNumber];
+
+    // 큐에 해당 페이지가 없으면 페이지를 추가함
+    if (reqPage == nullptr)
+    {
+        EnQueue(queue, hash, pageNumber);
+    }
+    // 큐에 해당 페이지가 있는데 front가 아니라면 큐를 재정렬한다
+    else if (reqPage != queue->front)
+    {
+        // A <=> reqPage <=> B ===> A <=> B로 변경
+        reqPage->prev->next = reqPage->next;
+        if (reqPage->next)
+        {
+            // reqPage가 큐의 rear이 아닐 경우
+            reqPage->next->prev = reqPage->prev;
+        }
+        //// reqPage가 큐의 rear일 경우
+        //// 소스 코드가 알기 어렵게 되므로 따로 if문으로 분리
+        //else
+        //{
+        //    queue->rear = reqPage->prev;
+        //    queue->rear->next = nullptr;
+        //}
+        
+        // reqPage가 큐의 rear였다면 rear를 재설정한다
+        if (reqPage == queue->rear)
+        {
+            queue->rear = reqPage->prev;
+            queue->rear->next = nullptr;
+        }
+
+        // reqPage를 큐의 front로 설정한다
+        // null <=> reqPage <=> front(였던 것)
+        reqPage->prev = nullptr;        // reqPage 노드의 prev를 null로 설정
+        reqPage->next = queue->front;   // reqPage 노드의 next를 큐의 front(였던 것)으로 설정
+        reqPage->next->prev = reqPage;  // reqPage 다음 노드의 prev를 reqPage로 설정
+        queue->front = reqPage;         // 큐의 front를 reqPage로 설정
+    }
+    // reqPage가 front라면 아무런 처리도 하지 않음
+    else
+    {
+        // 처리 없음
+    }
+}
+
 int main()
 {
     // 큐의 역할: 최근에 참조한 노드를 항상 프론트로 유지
     Queue* q = CreateQueue(4);
     Hash* hash = CreateHash(10);
+
+    // Let us refer pages 1, 2, 3, 1, 4, 5
+    ReferencePage(q, hash, 1);
+    ReferencePage(q, hash, 2);
+    ReferencePage(q, hash, 3);
+    ReferencePage(q, hash, 1);
+    ReferencePage(q, hash, 4);
+    ReferencePage(q, hash, 5);
+
+    // Let us print cache frames after the above referenced pages
+    printf("%d ", q->front->pageNumber);
+    printf("%d ", q->front->next->pageNumber);
+    printf("%d ", q->front->next->next->pageNumber);
+    printf("%d ", q->front->next->next->next->pageNumber);
 
     system("pause");
     return 0;
