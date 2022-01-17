@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Hashing_BJ15829", "Hashing_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_unordered_map", "Example_unordered_map\Example_unordered_map.vcxproj", "{C016970D-CC67-4D30-B89C-671E17D1127E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PathFiding_BFS", "PathFiding_BFS\PathFiding_BFS.vcxproj", "{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -161,6 +163,14 @@ Global
 		{C016970D-CC67-4D30-B89C-671E17D1127E}.Release|x64.Build.0 = Release|x64
 		{C016970D-CC67-4D30-B89C-671E17D1127E}.Release|x86.ActiveCfg = Release|Win32
 		{C016970D-CC67-4D30-B89C-671E17D1127E}.Release|x86.Build.0 = Release|Win32
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Debug|x64.ActiveCfg = Debug|x64
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Debug|x64.Build.0 = Debug|x64
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Debug|x86.ActiveCfg = Debug|Win32
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Debug|x86.Build.0 = Debug|Win32
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Release|x64.ActiveCfg = Release|x64
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Release|x64.Build.0 = Release|x64
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Release|x86.ActiveCfg = Release|Win32
+		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
