@@ -161,8 +161,8 @@ void PrintPath(int curY, int curX)
     // 출발지 -> 목적지까지의 경로가 된다
     for (int i = path.size() - 1; i >= 0; i--)
     {
-        if (i == 0) printf("{ %d, %d }", path.at(i).second, path.at(i).first);
-        else printf("{ %d, %d }->", path.at(i).second, path.at(i).first);
+        if (i == 0) printf("{%d,%d}", path.at(i).second, path.at(i).first);
+        else printf("{%d,%d}->", path.at(i).second, path.at(i).first);
     }
 }
 
@@ -289,7 +289,7 @@ public:
     {
         for (auto pair : m_List)
         {
-            printf("{%d %d}", pair.first, pair.second);
+            printf("{%d,%d}", pair.first, pair.second);
         }
         printf("\n");
     }
