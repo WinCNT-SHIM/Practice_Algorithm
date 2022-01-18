@@ -35,6 +35,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Example_unordered_map", "Ex
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PathFiding_BFS", "PathFiding_BFS\PathFiding_BFS.vcxproj", "{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BuildGraph", "BuildGraph\BuildGraph.vcxproj", "{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -171,6 +173,14 @@ Global
 		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Release|x64.Build.0 = Release|x64
 		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Release|x86.ActiveCfg = Release|Win32
 		{91F73EA2-4AD1-45FF-B916-196EA2EDDC27}.Release|x86.Build.0 = Release|Win32
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Debug|x64.ActiveCfg = Debug|x64
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Debug|x64.Build.0 = Debug|x64
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Debug|x86.ActiveCfg = Debug|Win32
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Debug|x86.Build.0 = Debug|Win32
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Release|x64.ActiveCfg = Release|x64
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Release|x64.Build.0 = Release|x64
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Release|x86.ActiveCfg = Release|Win32
+		{C7683176-3E4D-463C-BFA5-3DE9FEA26D2B}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
