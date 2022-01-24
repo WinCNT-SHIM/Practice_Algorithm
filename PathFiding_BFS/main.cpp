@@ -119,6 +119,9 @@ void PrintGrid()
     }
 }
 
+/// <summary>
+/// 시작점에서 각각의 그리드를 방문한 순서
+/// </summary>
 void PrintVisitOrder()
 {
     printf("========== Visit Order ==========\n");
