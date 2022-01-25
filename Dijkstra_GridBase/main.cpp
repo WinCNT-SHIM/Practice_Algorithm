@@ -37,7 +37,7 @@ char PathTable[MAX][MAX];
 int dx[8] = { 1, 0, -1,  0,  1, 1, -1, -1 };
 int dy[8] = { 0, 1,  0, -1, -1, 1,  1, -1 };
 
-// 우선순위 큐는 비교 연산이 필요
+// 우선 순위 큐에 넣는 노드
 class Node
 {
 public:
